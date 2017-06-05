@@ -1,0 +1,75 @@
+
+
+<md-toolbar class="md-hue-2">
+  <div class="md-toolbar-tools">
+
+
+    <h2 flex md-truncate>SurveyMeaning</h2>
+
+    <input type="file" class="ng-hide" id="input-file-id" on-read-file="showContent($fileContent)" />
+
+    <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+
+
+    <div class="block row"  ng-if="isupload()">
+        <div class="content" source="csv_upload()"></div>
+      </div>
+  </div>
+
+</md-toolbar>
+
+<div flex="100" layout="row" layout-fill>
+  <div flex="70" layout-align="center center" >
+
+      <md-card ng-show="readquestion.length>0"flex="100" layout-wrap>
+        <md-toolbar  >
+             <h3>{{readquestion}}</h3>
+        </md-toolbar>
+          <md-card-content>
+             <h3>Total Responses:{{answerlist.length}}</h3>
+          </md-card-content>
+        </md-card>
+
+
+    <div layout="row" >
+      <md-card flex="30" ng-repeat="(key, value) in sentipack track by $index">
+        <md-toolbar  ng-class="classkey(key)">
+             <h3>{{key}}</h3>
+        </md-toolbar>
+          <md-card-content>
+            <h3>Count:{{value.length}}</h3>
+          </md-card-content>
+          <md-button ng-click="detailList(key)">Details</md-button>
+        </md-card>
+    </div>
+
+    <md-list flex>
+
+        <md-list-item class="md-3-line" ng-repeat="item in answerdetails"  >
+
+          <div class="md-list-item-text" layout="column">
+
+            <p>{{ item.sentence }}</p>
+            <h4>Score:{{ item.ml }}</h4>
+          </div>
+        </md-list-item>
+    </md-list>
+
+  </div>
+
+  <div flex="30"  >
+
+
+                    <h3>My Questions</h3>
+
+
+
+                   <md-list flex>
+                     <md-list-item ng-repeat="q in dataOrg.freetext"class="md-2-line" ng-click="answerDetail(q)" ng-class="{selectedIndex: selectedIndex===q.question}">
+                         <a > {{q.question}} </a>
+                     </md-list-item>
+                  </md-list>
+
+
+    </div>
+</div>

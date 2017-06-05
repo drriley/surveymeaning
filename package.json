@@ -1,0 +1,14 @@
+{
+  "name"         : "geoSurvey",
+  "version"      : "0.0.1",
+  "description"  : "test",
+  "main"         : "server.js",
+  "author"       : "Darren Riley",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest",
+    "body-parser": "latest",
+    "mongoose"   : "latest"
+  }
+}
