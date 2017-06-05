@@ -1,16 +1,20 @@
 {
-  "name"         : "geoSurvey",
-  "version"      : "0.0.1",
-  "description"  : "test",
-  "main"         : "server.js",
-  "author"       : "Darren Riley",
-  "dependencies" : {
-    "express"    : "latest",
-    "request"    : "latest",
-    "cheerio"    : "latest",
+  "name": "survey",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "server.js",
+  "dependencies": {
     "body-parser": "latest",
-    "mongoose"   : "latest"
+    "express": "latest",
+    "mongoose": "latest",
+    "request": "latest",
+    "emotional":"latest",
+    "ml-sentiment":"latest",
+    "cheerio":"latest"
   },
-  "start":"node server.js"
-
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Darren Riley",
+  "license": "ISC"
 }
