@@ -51,9 +51,7 @@ app.post('/sentiFrame', function(req, res) {
 });
 
 
-http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
-});
+
 
 console.log('Magic happens on port 8000');
 

@@ -10,5 +10,7 @@
     "cheerio"    : "latest",
     "body-parser": "latest",
     "mongoose"   : "latest"
-  }
+  },
+  "start":"node server.js"
+
 }
