@@ -51,8 +51,8 @@ app.post('/sentiFrame', function(req, res) {
 });
 
 
+app.listen('8080');
 
-
-console.log('Magic happens on port 8000');
+console.log('Magic happens on port 8080');
 
 exports = module.exports = app;
