@@ -8,11 +8,13 @@ function mainController($scope, $http, $window,$location,qa) {
     $scope.csv.header = true
     $scope.csv.separator = ","
     $scope.csv.result = []
-     $scope.selectedIndex = null;
+    $scope.selectedIndex = null;
+    $scope.up = false
+
 
 
     $scope.showContent = function($fileContent){
-
+    $scope.up = true
     $scope.content = $fileContent;
     var line =   $scope.content
     var txt = line.replace(/(,\s)/g, ' ')
@@ -65,24 +67,21 @@ function mainController($scope, $http, $window,$location,qa) {
      $scope.questions = newTxt[0]
      qa.set(newTxt)
      $scope.surveyData = qa.get()
-     //console.log( $scope.surveyData )
+     console.log( $scope.surveyData )
      $scope.surveyData
      $scope.dataOrg = qa.org($scope.surveyData)
      console.log($scope.dataOrg)
+     console.log($scope.dataOrg.freetext[0].question)
+     $scope.answerDetail($scope.dataOrg.freetext[0],0)
    };
 
 
 
-    $scope.local = function (){
-      console.log("here")
-      $http.get('public/SWT.csv').success(function(data) {
-      $scope.data = data;
-      console.log(data)
- });
-    }
 
     $scope.answerDetail = function(q,index){
+
       $scope.readquestion= q.question
+      console.log(  typeof($scope.readquestion))
       $scope.answerlist = q.answers
       $scope.answerdetails = []
       $scope.sentipack = {"Positive":[],"Neutral":[],"Negative":[]}
@@ -90,9 +89,9 @@ function mainController($scope, $http, $window,$location,qa) {
       $http.post('/sentiFrame', q )
                        .success(function(data) {
 
-                         console.log(data)
+
                          for(x=0; x<data.length;x++){
-                           console.log(data[x].senti)
+
                           $scope.sentipack[data[x].senti].push(data[x])
                          }
                          console.log(  $scope.sentipack)

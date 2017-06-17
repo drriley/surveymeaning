@@ -53,6 +53,6 @@ app.post('/sentiFrame', function(req, res) {
 
 app.listen(process.env.PORT || 3000);
 
-console.log('Magic happens on port 8080');
+console.log('Magic happens on port 3000');
 
 exports = module.exports = app;

@@ -8,7 +8,7 @@
 
     <input type="file" class="ng-hide" id="input-file-id" on-read-file="showContent($fileContent)" />
 
-    <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+    <label for="input-file-id" class="md-button md-raised md-primary" id="colorwhite">Choose a CSV File</label>
 
 
     <div class="block row"  ng-if="isupload()">
@@ -18,10 +18,11 @@
 
 </md-toolbar>
 
-<div flex="100" layout="row" layout-fill>
-  <div flex="70" layout-align="center center" >
+<md-content>
+<md-content flex="100" layout="row" layout-fill>
+  <md-content flex="70" layout-align="center center" >
 
-      <md-card ng-show="readquestion.length>0"flex="100" layout-wrap>
+      <md-card ng-show="readquestion.length>0" flex="100" layout-wrap>
         <md-toolbar  >
              <h3>{{readquestion}}</h3>
         </md-toolbar>
@@ -52,24 +53,29 @@
             <p>{{ item.sentence }}</p>
             <h4>Score:{{ item.ml }}</h4>
           </div>
+        <md-divider></md-divider>
         </md-list-item>
     </md-list>
 
-  </div>
+  </md-content>
 
-  <div flex="30"  >
+  <md-content flex="30"  >
 
 
-                    <h3>My Questions</h3>
+                    <h3 ng-show="up==true">My Questions</h3>
 
 
 
                    <md-list flex>
                      <md-list-item ng-repeat="q in dataOrg.freetext"class="md-2-line" ng-click="answerDetail(q)" ng-class="{selectedIndex: selectedIndex===q.question}">
                          <a > {{q.question}} </a>
+                          <md-divider></md-divider>
                      </md-list-item>
                   </md-list>
 
 
-    </div>
-</div>
+    </md-content>
+
+
+</md-content>
+</md-content>
