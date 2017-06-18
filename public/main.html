@@ -19,11 +19,11 @@
 </md-toolbar>
 
 <md-content>
-<md-content flex="100" layout="row" layout-fill>
+<md-content flex="100" layout-align="center top" layout="row" layout-fill>
   <md-content flex="70" layout-align="center center" >
 
       <md-card ng-show="readquestion.length>0" flex="100" layout-wrap>
-        <md-toolbar  >
+        <md-toolbar  class="md-hue-2"  >
              <h3>{{readquestion}}</h3>
         </md-toolbar>
           <md-card-content>
@@ -32,7 +32,7 @@
         </md-card>
 
 
-    <div layout="row" >
+    <div layout="row" layout-align="center center" >
       <md-card flex="30" ng-repeat="(key, value) in sentipack track by $index">
         <md-toolbar  ng-class="classkey(key)">
              <h3>{{key}}</h3>
